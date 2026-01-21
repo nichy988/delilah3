@@ -9,6 +9,40 @@
   right: 24px;
   z-index: 2147483647;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Light mode colors (default) */
+  --bg-primary: rgba(255, 255, 255, 0.95);
+  --bg-secondary: rgba(255, 255, 255, 0.9);
+  --bg-tertiary: rgba(255, 255, 255, 0.8);
+  --bg-modal: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+  --border-color: rgba(255, 255, 255, 0.8);
+  --border-subtle: rgba(0, 0, 0, 0.05);
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-tertiary: #6b7280;
+  --text-muted: #9ca3af;
+  --bg-gray-light: #f3f4f6;
+  --bg-gray: #e5e7eb;
+  --hover-overlay: rgba(0, 0, 0, 0.05);
+  --scrollbar-thumb: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode color overrides */
+.pa-overlay.dark-mode {
+  --bg-primary: rgba(31, 41, 55, 0.95);
+  --bg-secondary: rgba(55, 65, 81, 0.9);
+  --bg-tertiary: rgba(75, 85, 99, 0.8);
+  --bg-modal: linear-gradient(180deg, rgba(31, 41, 55, 0.95) 0%, rgba(31, 41, 55, 0.85) 100%);
+  --border-color: rgba(75, 85, 99, 0.8);
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --text-primary: #f9fafb;
+  --text-secondary: #e5e7eb;
+  --text-tertiary: #d1d5db;
+  --text-muted: #9ca3af;
+  --bg-gray-light: #374151;
+  --bg-gray: #4b5563;
+  --hover-overlay: rgba(255, 255, 255, 0.1);
+  --scrollbar-thumb: rgba(255, 255, 255, 0.2);
 }
 
 .pa-pill {
@@ -16,11 +50,11 @@
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--bg-primary);
   backdrop-filter: blur(20px);
   border-radius: 50px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border-color);
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -52,12 +86,12 @@
 }
 
 .pa-pill-btn.bookmark {
-  background: #f3f4f6;
-  color: #6b7280;
+  background: var(--bg-gray-light);
+  color: var(--text-tertiary);
 }
 
 .pa-pill-btn.bookmark:hover {
-  background: #e5e7eb;
+  background: var(--bg-gray);
 }
 
 .pa-loader {
@@ -66,11 +100,11 @@
   align-items: center;
   justify-content: center;
   padding: 24px 40px;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--bg-primary);
   backdrop-filter: blur(20px);
   border-radius: 24px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border-color);
   min-width: 280px;
 }
 
@@ -112,7 +146,7 @@
 
 .pa-loader-text {
   font-size: 14px;
-  color: #6b7280;
+  color: var(--text-tertiary);
   text-align: center;
 }
 
@@ -120,11 +154,11 @@
   width: 420px;
   max-height: 80vh;
   overflow-y: auto;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+  background: var(--bg-modal);
   backdrop-filter: blur(20px);
   border-radius: 24px;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border-color);
   animation: modalIn 0.4s ease-out;
 }
 
@@ -144,7 +178,7 @@
 }
 
 .pa-modal::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.1);
+  background: var(--scrollbar-thumb);
   border-radius: 3px;
 }
 
@@ -170,13 +204,13 @@
   border-radius: 8px;
   border: none;
   background: transparent;
-  color: #6b7280;
+  color: var(--text-tertiary);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .pa-header-btn:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: var(--hover-overlay);
 }
 
 .pa-header-btn.active {
@@ -195,10 +229,10 @@
   align-items: center;
   gap: 12px;
   padding: 12px;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--bg-secondary);
   backdrop-filter: blur(8px);
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--border-subtle);
 }
 
 .pa-product-image {
@@ -206,7 +240,7 @@
   height: 64px;
   border-radius: 12px;
   object-fit: cover;
-  background: #f3f4f6;
+  background: var(--bg-gray-light);
 }
 
 .pa-product-info {
@@ -217,7 +251,7 @@
 .pa-product-name {
   font-size: 14px;
   font-weight: 600;
-  color: #111827;
+  color: var(--text-primary);
   margin: 0 0 4px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -226,20 +260,20 @@
 
 .pa-product-meta {
   font-size: 13px;
-  color: #6b7280;
+  color: var(--text-tertiary);
 }
 
 .pa-section {
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--bg-secondary);
   backdrop-filter: blur(8px);
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--border-subtle);
   overflow: hidden;
   transition: all 0.2s ease;
 }
 
 .pa-section:hover {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--bg-primary);
 }
 
 .pa-section-header {
@@ -260,13 +294,13 @@
 .pa-section-icon {
   width: 20px;
   height: 20px;
-  color: #6b7280;
+  color: var(--text-tertiary);
 }
 
 .pa-section-name {
   font-size: 14px;
   font-weight: 600;
-  color: #111827;
+  color: var(--text-primary);
 }
 
 .pa-section-pill {
@@ -295,7 +329,7 @@
 .pa-section-chevron {
   width: 20px;
   height: 20px;
-  color: #9ca3af;
+  color: var(--text-muted);
   transition: transform 0.2s ease;
 }
 
@@ -306,13 +340,13 @@
 .pa-section-summary {
   padding: 0 16px 14px;
   font-size: 13px;
-  color: #6b7280;
+  color: var(--text-tertiary);
   line-height: 1.5;
 }
 
 .pa-section-content {
   padding: 0 16px 16px;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .pa-style-chips {
@@ -345,13 +379,13 @@
 }
 
 .pa-chip.closet {
-  background: #f3f4f6;
-  color: #374151;
+  background: var(--bg-gray-light);
+  color: var(--text-secondary);
 }
 
 .pa-closet-label {
   font-size: 11px;
-  color: #9ca3af;
+  color: var(--text-muted);
   margin: 16px 0 8px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -359,7 +393,7 @@
 
 .pa-verdict {
   font-size: 14px;
-  color: #374151;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin: 12px 0;
 }
@@ -367,7 +401,7 @@
 .pa-tips-label {
   font-size: 12px;
   font-weight: 600;
-  color: #6b7280;
+  color: var(--text-tertiary);
   margin: 16px 0 8px;
 }
 
@@ -382,7 +416,7 @@
 
 .pa-tips-list li {
   font-size: 13px;
-  color: #4b5563;
+  color: var(--text-secondary);
   padding-left: 16px;
   position: relative;
 }
@@ -391,7 +425,7 @@
   content: "•";
   position: absolute;
   left: 0;
-  color: #9ca3af;
+  color: var(--text-muted);
 }
 
 .pa-wearability-cards {
@@ -403,9 +437,9 @@
 
 .pa-wearability-card {
   padding: 12px;
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--bg-tertiary);
   border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-subtle);
 }
 
 .pa-wearability-card-header {
@@ -443,7 +477,7 @@
   width: 4px;
   height: 16px;
   border-radius: 2px;
-  background: #e5e7eb;
+  background: var(--bg-gray);
 }
 
 .pa-score-bar.active.good {
@@ -458,19 +492,19 @@
 
 .pa-score-text {
   font-size: 12px;
-  color: #9ca3af;
+  color: var(--text-muted);
 }
 
 .pa-wearability-card-title {
   font-size: 13px;
   font-weight: 600;
-  color: #111827;
+  color: var(--text-primary);
   margin-bottom: 2px;
 }
 
 .pa-wearability-card-desc {
   font-size: 12px;
-  color: #6b7280;
+  color: var(--text-tertiary);
 }
 
 .pa-fabric-bar {
@@ -504,7 +538,7 @@
 
 .pa-fabric-verdict {
   font-size: 13px;
-  color: #6b7280;
+  color: var(--text-tertiary);
   line-height: 1.5;
 }
 
@@ -520,15 +554,15 @@
   align-items: center;
   gap: 12px;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--bg-tertiary);
   border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-subtle);
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .pa-alternative:hover {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--bg-primary);
   transform: translateX(2px);
 }
 
@@ -537,7 +571,7 @@
   height: 48px;
   border-radius: 8px;
   object-fit: cover;
-  background: #f3f4f6;
+  background: var(--bg-gray-light);
 }
 
 .pa-alternative-info {
@@ -548,7 +582,7 @@
 .pa-alternative-name {
   font-size: 13px;
   font-weight: 500;
-  color: #111827;
+  color: var(--text-primary);
   margin-bottom: 2px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -557,13 +591,13 @@
 
 .pa-alternative-meta {
   font-size: 12px;
-  color: #6b7280;
+  color: var(--text-tertiary);
 }
 
 .pa-alternative-arrow {
   width: 16px;
   height: 16px;
-  color: #9ca3af;
+  color: var(--text-muted);
 }
 
 .pa-hidden {

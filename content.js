@@ -579,7 +579,7 @@
   // Render pill view
   function renderPill() {
     return `
-      <div class="pa-overlay">
+      <div class="pa-overlay ${state.isDarkMode ? 'dark-mode' : ''}">
         <div class="pa-pill">
           <button class="pa-pill-btn scan" id="pa-scan-btn">
             ${icons.sparkles}
@@ -595,7 +595,7 @@
   // Render loading view
   function renderLoading() {
     return `
-      <div class="pa-overlay">
+      <div class="pa-overlay ${state.isDarkMode ? 'dark-mode' : ''}">
         <div class="pa-loader">
           <div class="pa-loader-dots">
             <div class="pa-loader-dot"></div>
@@ -710,7 +710,7 @@
     const styleSummary = `${analysis.style.verdict} Similar to your ${analysis.style.closetItems.join(" and ")}.`
 
     return `
-      <div class="pa-overlay">
+      <div class="pa-overlay ${state.isDarkMode ? 'dark-mode' : ''}">
         <div class="pa-modal">
           <div class="pa-header">
             <div class="pa-header-actions">
